@@ -20,6 +20,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const registerForm = document.getElementById('register-form');
+    const registerUsernameInput = document.getElementById('register-username');
+    const registerEmailInput = document.getElementById('register-email');
+    const registerPasswordInput = document.getElementById('register-password');
+
+    registerForm.addEventListener('submit', async (event) => {
+        
+        event.preventDefault();
+        
+        const userData = {
+            username: registerUsernameInput.value,
+            email: registerEmailInput.value,
+            password: registerPasswordInput.value
+        };
+
+        console.log("Attempting to register:" , userData);
+
+        try {
+            const response = await fetch('http://localhost:8080/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(userData)
+            });
+
+            if (response.ok) {
+
+                const data = await response.json();
+                console.log("Registration Successful:" , data);
+
+                alert('Registration successful! Please login.');
+                registerForm.reset();
+
+                showView('login-view');
+            }else {
+                console.error("Server Error:", response.status);
+                alert('Registration failed. Please try again.');
+
+            }
+        } catch (error) {
+            console.error('Network Error:', error);
+            alert('Could not connect to the server. Is the backend running?');
+        }
+    });
+
     showRegisterLink.addEventListener('click', (event) => {
         event.preventDefault();
 
