@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskMaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
         <section id="login-view" class="view">
             <div class="form-container">
                 <div class="form-header">
-                    <img src="images/logo.png" alt="TaskMaster Logo" class="logo">
+                    <img src="images/logo.png" alt="TaskMaster Logo" class="logo-large">
                     <h2>Sign in to your account</h2>
                 </div>
                 <form id="login-form">
@@ -36,10 +39,12 @@
             </div>
         </section>
 
+
+
         <section id="register-view" class="view hidden">
             <div class="form-container">
                 <div class="form-header">
-                    <img src="images/logo.png" alt="TaskMaster Logo" class="logo">
+                    <img src="images/logo.png" alt="TaskMaster Logo" class="logo-large">
                     <h2>Create your account</h2>
                 </div>
 
@@ -64,25 +69,27 @@
             </div>
         </section>
 
+
+
         <section id="tasks-view" class="view hidden">
             <header class="app-header">
-                <div>
-                    <h3 class="logo-text">TaskMaster</h3>
+                <div class="header-left">
+                    <img src="images/logo.png" alt="TaskMaster Logo" class="logo-small">
                 </div>
                 <div class="header-right">
-                    <span id="welcome-message" style="margin-right: 10px; font-weight: 500;"></span>
+                    <span id="welcome-message">Welcome!</span>
                     <button id="logout-button" class="btn btn-secondary">Logout</button>
                 </div>
             </header>
 
             <main class="tasks-container">
-                <div class="card">
+                <div class="card add-task-card">
                     <h3>Add a New Task</h3>
                     <form id="add-task-form">
-                        <div class="form-group">
+                        <div class="input-row">
                             <input type="text" id="new-task-title" placeholder="What do you need to do?" required>
+                            <button type="submit" class="btn btn-primary btn-small">Add Task</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Task</button>
                     </form>
                 </div>
 

@@ -1,41 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f4f6f8;
+    background-color: #f0f2f5;
     margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    color: #333;
+    color: #1c1e21;
+}
+
+.logo-large {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.logo-small {
+    width: 100px;
+    height: auto;
+    margin-right: 12px;
+}
+
+body:has(#login-view:not(.hidden)),
+body:has(#register-view:not(.hidden)) {
+    align-items: center;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 800px; 
+    padding: 20px;
 }
 
 .hidden {
     display: none !important;
 }
 
-#app-container {
+.brand-logo {
+    font-size: 32px;
+    font-weight: 800;
+    color: #6200ea;
+    margin: 0 0 10px 0;
+    letter-spacing: -1px;
+}
+
+.brand-logo-small {
+    font-size: 24px;
+    font-weight: 800;
+    color: #6200ea;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     width: 100%;
-    max-width: 480px;
-    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.view {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.form-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #606770;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .card {
     background: white;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #6200ea;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary {
+    background-color: #6200ea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3700b3;
+}
+
+.btn-secondary {
+    background-color: #e4e6eb;
+    color: #050505;
+    width: auto;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.btn-secondary:hover {
+    background-color: #d8dadf;
 }
 
 
@@ -43,107 +148,62 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.logo-text {
-    font-weight: 700;
-    font-size: 24px;
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 800;
     color: #2c3e50;
-    margin: 0;
+    letter-spacing: -0.5px;
 }
 
-
-.form-header {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.form-group {
-    margin-bottom: 16px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #64748b;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 15px;
-    transition: border-color 0.2s;
-    box-sizing: border-box;
-}
-
-input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
+#welcome-message {
     font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.1s, opacity 0.2s;
+    color: #333;
 }
 
-.btn:active {
-    transform: scale(0.98);
+
+.input-row {
+    display: flex;
+    gap: 10px;
 }
 
-.btn-primary {
-    background-color: #1e293b;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0f172a;
-}
-
-.btn-secondary {
-    background-color: #f1f5f9;
-    color: #475569;
+.btn-small {
     width: auto;
-    padding: 8px 16px;
-    font-size: 14px;
+    white-space: nowrap;
 }
 
-.btn-secondary:hover {
-    background-color: #e2e8f0;
-}
-
-
-#task-list {
+ul#task-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .task-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.task-item:last-child {
-    border-bottom: none;
+    padding: 16px;
+    border: 1px solid #f0f2f5;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
 }
 
 .task-info {
@@ -155,43 +215,25 @@ input:focus {
 .task-check {
     width: 20px;
     height: 20px;
+    accent-color: #6200ea;
     cursor: pointer;
 }
 
 .task-title {
     font-size: 16px;
-    color: #334155;
+    font-weight: 500;
 }
 
 .task-title.completed {
     text-decoration: line-through;
-    color: #94a3b8;
+    color: #999;
 }
 
 .delete-btn {
     background: none;
     border: none;
-    color: #ef4444;
-    font-size: 14px;
+    color: #ff3b30;
+    font-weight: 600;
     cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.task-item:hover .delete-btn {
-    opacity: 1;
-}
-
-.empty-state {
-    text-align: center;
-    color: #94a3b8;
-    padding: 20px;
-    font-style: italic;
-}
-
-
-a {
-    color: #3b82f6;
-    text-decoration: none;
-    font-weight: 500;
+    font-size: 14px;
 }
