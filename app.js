@@ -131,10 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         const tasks = await response.json();
+
+        console.log("SERVER SENT THIS ARRAY:", tasks);
         renderTaskList(tasks);
       } else {
         console.error("Failed to fetch tasks:", response.status);
-
         if (response.status === 403) {
           logout();
         }
@@ -158,7 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
       li.className = "task-item";
 
       li.innerHTML = `
-            <input type="checkbox" class="task-check" 
+            <div class="task-info">
+                <input type="checkbox" class="task-check" 
                        ${task.completed ? "checked" : ""} 
                        onclick="toggleTask(${task.id}, '${
         task.title
@@ -172,7 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="delete-btn" onclick="deleteTask(${
               task.id
             })">Delete</button>
-            `;
+      `;
+
       taskList.appendChild(li);
     });
   }
@@ -248,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert("Failed to delete task.");
       }
-    } catch (errors) {
+    } catch (error) {
       console.error("Error deleting task:", error);
     }
   };
