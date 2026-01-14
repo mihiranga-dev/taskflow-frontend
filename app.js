@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTaskForm = document.getElementById("add-task-form");
   const newTaskTitleInput = document.getElementById("new-task-title");
   const logoutButton = document.getElementById("logout-button");
+  // const API_BASE_URL = "http://localhost:8080"; // Local Development
+  const API_BASE_URL = "https://mihiranga-dev-taskflow-backend.hf.space";
 
   function showView(viewId) {
     loginView.classList.add("hidden");
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Attempting to register:", userData);
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Attempting to login:", loginData);
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/tasks", {
+      const response = await fetch(`${API_BASE_URL}/api/tasks`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -186,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = newTaskTitleInput.value;
 
     try {
-      const response = await fetch("http://localhost:8080/api/tasks", {
+      const response = await fetch(`${API_BASE_URL}/api/tasks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -239,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://localhost:8080/api/tasks/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -259,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.toggleTask = async (id, title, newStatus) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://localhost:8080/api/tasks/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
